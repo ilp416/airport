@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221072941) do
+ActiveRecord::Schema.define(version: 20160221082025) do
+
+  create_table "plane_logs", force: :cascade do |t|
+    t.integer  "plane_id",   limit: 4
+    t.string   "state",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "plane_logs", ["plane_id"], name: "index_plane_logs_on_plane_id", using: :btree
 
   create_table "planes", force: :cascade do |t|
     t.string   "state",      limit: 255
@@ -19,4 +28,5 @@ ActiveRecord::Schema.define(version: 20160221072941) do
     t.datetime "updated_at",             null: false
   end
 
+  add_foreign_key "plane_logs", "planes"
 end
