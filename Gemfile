@@ -41,3 +41,8 @@ group :development, :test do
   gem 'spring'
 end
 
+group :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'database_cleaner'
+end
+
