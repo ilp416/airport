@@ -1,0 +1,13 @@
+- @last_events.each do |event|
+  .event{class: event.state}
+    %i
+      = event.id
+    %strong
+      = "##{event.plane_id}"
+    = surround '[', ']' do
+      = event.state
+    = event.created_at
+:coffee
+  setTimeout ( ->
+    $.get(url: "#{airstrip_path(later_than: @last_events.first.try(:id) || params[:later_than], format: :js)}")
+    ), 3000

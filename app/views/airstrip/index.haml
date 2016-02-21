@@ -1,0 +1,9 @@
+<h1>Airstrip</h1>
+= form_tag airstrip_launch_planes_path, method: :PUT, remote: true do 
+  Get
+  = text_field_tag :planes_count, params[:planes_count] 
+  planes, and
+  = button_tag 'launch it!'
+.events
+  = render 'events'
+
