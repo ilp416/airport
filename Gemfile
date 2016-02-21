@@ -36,12 +36,12 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
   gem 'byebug'
   gem 'spring'
 end
 
 group :test do
-  gem 'rspec-rails', '~> 3.0'
   gem 'database_cleaner'
 end
 
