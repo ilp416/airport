@@ -17,7 +17,7 @@ class Plane < ActiveRecord::Base
       transitions from: [:new, :delayed], to: :running, guard: :can_start?
     end
 
-    event :launched do
+    event :launched, after: :start_delayed_planes do
       transitions from: :running, to: :flew
     end
 
@@ -42,5 +42,10 @@ class Plane < ActiveRecord::Base
   def save_if_new
     save if new_record?
   end
+
+  def start_delayed_planes
+    Airstrip.start_delayed_planes
+  end
+
 
 end
