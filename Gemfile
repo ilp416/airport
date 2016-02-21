@@ -45,3 +45,5 @@ group :test do
   gem 'database_cleaner'
 end
 
+gem 'aasm'
+
