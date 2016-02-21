@@ -6,19 +6,25 @@ class Plane < ActiveRecord::Base
 
   aasm column: :state do
     state :new, initial: true
+    state :delayed
     state :running
     state :flew
 
     after_all_transitions :log_plane_state
 
     event :start, before: :save_if_new, after: :perform_launching do
-      transitions from: :new, to: :running
+      transitions from: [:new, :delayed], to: :delayed, unless: :can_start?
+      transitions from: [:new, :delayed], to: :running, guard: :can_start?
     end
 
     event :launched do
       transitions from: :running, to: :flew
     end
 
+  end
+
+  def can_start?
+    Airstrip.free?
   end
 
   def log_plane_state

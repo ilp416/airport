@@ -21,8 +21,14 @@ RSpec.describe Plane, type: :model do
     expect(@plane.state).to eq "flew"
   end
 
-  it 'it cannot to perform launching if not running' do
+  it 'cannot to perform launching if not running' do
     expect(@plane.perform_launching).to be false 
+  end
+
+  it 'cannot be start if other plane is running' do
+    Plane.create state: 'running'
+    @plane.start
+    expect(@plane.state).to eq 'delayed'
   end
 
 end
