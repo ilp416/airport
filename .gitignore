@@ -7,7 +7,27 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore conf database.
+config/database.yml
+# Ignore aws credentionals.
+config/aws.yml
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
+
+# Ignore temporary folder
 /tmp
+
+# Ignore static assets
+/public/assets
+# Ignore dinamic assets
+public/system/*
+
+# Ignore editor swaps, and backups
+*~
+.*.swp
+.DS_Store
