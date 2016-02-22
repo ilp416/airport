@@ -2,6 +2,8 @@ class Plane < ActiveRecord::Base
 
   has_many :plane_logs
 
+  LAUNCHING_DURATION = 10.seconds
+
   include AASM
 
   aasm column: :state do
@@ -34,7 +36,7 @@ class Plane < ActiveRecord::Base
   def perform_launching
     return false unless may_launched?
     Thread.new do
-      sleep 5.seconds
+      sleep LAUNCHING_DURATION
       launched!
     end
   end
