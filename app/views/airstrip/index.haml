@@ -1,13 +1,16 @@
 .airstrip 
   .head
     %h1.central
-      Airstrip
+      = t :Airstrip
     .central
       .inline-block
         = form_tag airstrip_launch_planes_path, method: :PUT, remote: true do 
-          = button_tag 'Launch'
-          = text_field_tag :planes_count, params[:planes_count] || 2
-          planes!
+          - params[:planes_count] ||= 2
+          = text_field_tag :planes_count, params[:planes_count]
+          = succeed ', ' do
+            %span.pluralize_me{"data-plural-one" => "#{t 'planes.without_counts', count: 1}", "data-plural-two" => "#{t 'planes.without_counts', count: 2}", "data-plural-five" => "#{t 'planes.without_counts', count: 5}"}<
+              = t 'planes.without_counts', count: params[:planes_count]
+          = button_tag t('plane.launch!')
   .central
     .events.inline-block
       = render 'events'

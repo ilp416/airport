@@ -1,0 +1,6 @@
+ru:
+  time:
+    formats:
+      text_date: "%e %b %Y"
+      text: "%e %b %Y %H:%M"
+      default: "%Y-%m-%d %H:%M:%S"

@@ -1,0 +1,25 @@
+ru:
+  activerecord:
+    models:
+      plane: Самолет
+    attributes:
+      plane:
+        status: Статус 
+        state:
+          new: Новый
+          delayed: Отложен
+          running: На полосе
+          flew: Взлетел
+  plane:
+    launch: на взлет
+    launch!: на взлет!
+  planes:
+    few: '%{count} самолета'
+    many: '%{count} самолетов'
+    one: '%{count} самолет'
+    other: '%{count} самолета'
+    without_counts:
+      few: " самолета"
+      many: " самолетов"
+      one: " самолет"
+      other: " самолета"

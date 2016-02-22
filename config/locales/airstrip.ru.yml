@@ -1,0 +1,9 @@
+ru:
+  Airstrip: Взлетная полоса
+  airstrip:
+    plane_num: 'Борт #%{plane_id}'
+    plane_states:
+      new: Новый
+      delayed: Отложен
+      running: На полосе
+      flew: Взлетел

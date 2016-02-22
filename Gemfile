@@ -47,4 +47,5 @@ group :test do
 end
 
 gem 'aasm'
+gem 'russian', "~> 0.6.0"
 
